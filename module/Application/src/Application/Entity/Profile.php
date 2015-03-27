@@ -46,9 +46,18 @@ class Profile extends EntityAbstract
      * @ORM\Column(type="string", length=128)
      *
      * @var string
-     */
+     */  
     protected $firstName;
-
+  
+    /**
+     *dateOfBirth
+     * 
+     * @ORM\Column(type="string")
+     * 
+     * @var string 
+     */
+    protected $dateOfBirth;
+    
     /**
      * Address
      *
@@ -156,7 +165,30 @@ class Profile extends EntityAbstract
     {
         return $this->address;
     }
-
+    
+    /**
+     * Set dateOfBirth
+     * 
+     * @param string $dateOfBirth
+     * @return Profile
+     */
+    public function setDateOfBirth($dateOfBirth)
+    {
+        $this->dateOfBirth = $dateOfBirth;
+        
+        return $this;
+    }
+    
+    /**
+     * Get dateOfBirth
+     * 
+     * @return string
+     */
+    public function getDateOfBirth()
+    {
+        return $this->dateOfBirth;
+    }
+    
     /**
      * Set user
      *
