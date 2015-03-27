@@ -61,7 +61,16 @@ class UserController extends AbstractActionController
     public function removeAction()
     {
         //To do : Do Remove User
-
+ 
+         $userToRemove = $this->getServiceLocator()->get('entity_manager')
+            ->getRepository('Application\Entity\User')
+            ->find($this->params()->fromRoute('user_id'));
+        
+         $serviceUser = $this->getServiceLocator()->get('application.service.user');
+                         
+         $serviceUser->removeUser($userToRemove);
+        
+        
         $this->redirect()->toRoute('users');
     }
 
@@ -75,8 +84,11 @@ class UserController extends AbstractActionController
             ->find($this->params()->fromRoute('user_id'));
 
         $form->bind($userToEdit);
-        $form->get('firstname')->setValue($userToEdit->getFirstname());
-
+        $form->get('lastname')->setValue($userToEdit->getLastName());
+        $form->get('firstname')->setValue($userToEdit->getFirstName());
+        $form->get('dateofbirth')->setValue($userToEdit->getDateOfBirth());
+        $form->get('address')->setValue($userToEdit->getAddress());
+              
         $data = $this->prg();
 
         if ($data instanceof \Zend\Http\PhpEnvironment\Response) {
@@ -91,6 +103,9 @@ class UserController extends AbstractActionController
                 $user = $form->getData();
 
                 //Save the user
+                $serviceUser = $this->getServiceLocator()->get('application.service.user');
+
+                $serviceUser->saveUser($user);
 
                 $this->redirect()->toRoute('users');
             }
