@@ -5,20 +5,91 @@
 <br/>
 <br/>
 
-<table>
+<script>
+ 
+function sortTable(tid, col, ord){
+	var mybody = $("#"+tid).children('tbody'),
+		lines = mybody.children('tr'),
+		sorter = [],
+		i = -1,
+		j = -1;
+ 
+	while(lines[++i]){
+		sorter.push([lines.eq(i), lines.eq(i).children('td').eq(col).text()])
+	}
+ 
+	if (ord == 'asc') {
+		sorter.sort();
+	} else if (ord == 'desc') {
+		sorter.sort().reverse();
+	} 
+ 
+	while(sorter[++j]){
+		mybody.append(sorter[j][0]);
+	}
+}
+ 
+                    $(function(){
+                    });
+ 	</script>
+
+<table id="user">
     <thead>
         <tr>
             <th>
                 <?=$this->translate('__user_id')?>
+                <input type="image" onclick="sortTable('user',0, 'desc')"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACtSURBVDiNxdM9DgFBGIDhZ9EoVbptJCpncAcOoBcX0DqFIygkWo3OFVzAAWgU20hGM2T9LGsVNplkZvK9TzHJJiEEv3y1n2ok2KBTsd9DH2eECmsgvsGsQrwMIbgCdWy/iA9o34CIpDiWBEa37rqJyLBEvL5r8oeIzN/EJ6SfgCZ2BcDkaf7xIiI9ZA/xFkkpICLjXJyh+3KuCIjIKgLTwpkPQAsLNIpmkr//jRfanjve0EoGkQAAAABJRU5ErkJggg49bfb613cbf07d08cc0c9ca3543fd937"
+                    width="10px;"/>
+	<input type="image" onclick="sortTable('user',0, 'asc')"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG6wAABusBTDGeSgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACySURBVDiNxdM9akJREAbQM0ogrV0aIdZuIZvQHdildAfuIptIcAGpJE0WYOUitBIhEBgbH/jzfF61cODr7ndg4E5kpnumdVe7CYiIp4j4jIhOo5CZtcEEiem5N5lZD6CPvx2QeC8Gdmv97pUTG/RLgfFRucocz40AelifARIfl4DvhnKVQS2AUUE5sUT3AMALVoVA4gftfeDrinKVSXUGwxvKiX+8BWZ4PfmiZbOIh1/jFoR2FSZYD+02AAAAAElFTkSuQmCCc190d1557c70501f26f390a9a74a5c83"
+                  width="10px;"/>
+        
             </th>
             <th>
                 <?=$this->translate('__user_firstname')?>
+               <input type="image" onclick="sortTable('user',1, 'desc')"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACtSURBVDiNxdM9DgFBGIDhZ9EoVbptJCpncAcOoBcX0DqFIygkWo3OFVzAAWgU20hGM2T9LGsVNplkZvK9TzHJJiEEv3y1n2ok2KBTsd9DH2eECmsgvsGsQrwMIbgCdWy/iA9o34CIpDiWBEa37rqJyLBEvL5r8oeIzN/EJ6SfgCZ2BcDkaf7xIiI9ZA/xFkkpICLjXJyh+3KuCIjIKgLTwpkPQAsLNIpmkr//jRfanjve0EoGkQAAAABJRU5ErkJggg49bfb613cbf07d08cc0c9ca3543fd937"
+                    width="10px;"/>
+	<input type="image" onclick="sortTable('user',1, 'asc')"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG6wAABusBTDGeSgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACySURBVDiNxdM9akJREAbQM0ogrV0aIdZuIZvQHdildAfuIptIcAGpJE0WYOUitBIhEBgbH/jzfF61cODr7ndg4E5kpnumdVe7CYiIp4j4jIhOo5CZtcEEiem5N5lZD6CPvx2QeC8Gdmv97pUTG/RLgfFRucocz40AelifARIfl4DvhnKVQS2AUUE5sUT3AMALVoVA4gftfeDrinKVSXUGwxvKiX+8BWZ4PfmiZbOIh1/jFoR2FSZYD+02AAAAAElFTkSuQmCCc190d1557c70501f26f390a9a74a5c83"
+                  width="10px;"/>
             </th>
             <th>
                 <?=$this->translate('__user_lastname')?>
+                <input type="image" onclick="sortTable('user',2, 'desc')"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACtSURBVDiNxdM9DgFBGIDhZ9EoVbptJCpncAcOoBcX0DqFIygkWo3OFVzAAWgU20hGM2T9LGsVNplkZvK9TzHJJiEEv3y1n2ok2KBTsd9DH2eECmsgvsGsQrwMIbgCdWy/iA9o34CIpDiWBEa37rqJyLBEvL5r8oeIzN/EJ6SfgCZ2BcDkaf7xIiI9ZA/xFkkpICLjXJyh+3KuCIjIKgLTwpkPQAsLNIpmkr//jRfanjve0EoGkQAAAABJRU5ErkJggg49bfb613cbf07d08cc0c9ca3543fd937"
+                    width="10px;"/>
+	<input type="image" onclick="sortTable('user',2, 'asc')"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG6wAABusBTDGeSgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACySURBVDiNxdM9akJREAbQM0ogrV0aIdZuIZvQHdildAfuIptIcAGpJE0WYOUitBIhEBgbH/jzfF61cODr7ndg4E5kpnumdVe7CYiIp4j4jIhOo5CZtcEEiem5N5lZD6CPvx2QeC8Gdmv97pUTG/RLgfFRucocz40AelifARIfl4DvhnKVQS2AUUE5sUT3AMALVoVA4gftfeDrinKVSXUGwxvKiX+8BWZ4PfmiZbOIh1/jFoR2FSZYD+02AAAAAElFTkSuQmCCc190d1557c70501f26f390a9a74a5c83"
+                  width="10px;"/>
             </th>
             <th>
                 <?=$this->translate('__user_email')?>
+                 <input type="image" onclick="sortTable('user',3, 'desc')"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACtSURBVDiNxdM9DgFBGIDhZ9EoVbptJCpncAcOoBcX0DqFIygkWo3OFVzAAWgU20hGM2T9LGsVNplkZvK9TzHJJiEEv3y1n2ok2KBTsd9DH2eECmsgvsGsQrwMIbgCdWy/iA9o34CIpDiWBEa37rqJyLBEvL5r8oeIzN/EJ6SfgCZ2BcDkaf7xIiI9ZA/xFkkpICLjXJyh+3KuCIjIKgLTwpkPQAsLNIpmkr//jRfanjve0EoGkQAAAABJRU5ErkJggg49bfb613cbf07d08cc0c9ca3543fd937"
+                    width="10px;"/>
+	<input type="image" onclick="sortTable('user',3, 'asc')"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG6wAABusBTDGeSgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACySURBVDiNxdM9akJREAbQM0ogrV0aIdZuIZvQHdildAfuIptIcAGpJE0WYOUitBIhEBgbH/jzfF61cODr7ndg4E5kpnumdVe7CYiIp4j4jIhOo5CZtcEEiem5N5lZD6CPvx2QeC8Gdmv97pUTG/RLgfFRucocz40AelifARIfl4DvhnKVQS2AUUE5sUT3AMALVoVA4gftfeDrinKVSXUGwxvKiX+8BWZ4PfmiZbOIh1/jFoR2FSZYD+02AAAAAElFTkSuQmCCc190d1557c70501f26f390a9a74a5c83"
+                  width="10px;"/>
+            </th>
+            <th>
+                <?=$this->translate('Date de naissance')?>
+                  <input type="image" onclick="sortTable('user',4, 'desc')"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACtSURBVDiNxdM9DgFBGIDhZ9EoVbptJCpncAcOoBcX0DqFIygkWo3OFVzAAWgU20hGM2T9LGsVNplkZvK9TzHJJiEEv3y1n2ok2KBTsd9DH2eECmsgvsGsQrwMIbgCdWy/iA9o34CIpDiWBEa37rqJyLBEvL5r8oeIzN/EJ6SfgCZ2BcDkaf7xIiI9ZA/xFkkpICLjXJyh+3KuCIjIKgLTwpkPQAsLNIpmkr//jRfanjve0EoGkQAAAABJRU5ErkJggg49bfb613cbf07d08cc0c9ca3543fd937"
+                    width="10px;"/>
+	<input type="image" onclick="sortTable('user',4, 'asc')"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG6wAABusBTDGeSgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACySURBVDiNxdM9akJREAbQM0ogrV0aIdZuIZvQHdildAfuIptIcAGpJE0WYOUitBIhEBgbH/jzfF61cODr7ndg4E5kpnumdVe7CYiIp4j4jIhOo5CZtcEEiem5N5lZD6CPvx2QeC8Gdmv97pUTG/RLgfFRucocz40AelifARIfl4DvhnKVQS2AUUE5sUT3AMALVoVA4gftfeDrinKVSXUGwxvKiX+8BWZ4PfmiZbOIh1/jFoR2FSZYD+02AAAAAElFTkSuQmCCc190d1557c70501f26f390a9a74a5c83"
+                  width="10px;"/>
+            </th>
+            <th>
+                <?=$this->translate('Adresse')?>
+                <input type="image" onclick="sortTable('user',5, 'desc')"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACtSURBVDiNxdM9DgFBGIDhZ9EoVbptJCpncAcOoBcX0DqFIygkWo3OFVzAAWgU20hGM2T9LGsVNplkZvK9TzHJJiEEv3y1n2ok2KBTsd9DH2eECmsgvsGsQrwMIbgCdWy/iA9o34CIpDiWBEa37rqJyLBEvL5r8oeIzN/EJ6SfgCZ2BcDkaf7xIiI9ZA/xFkkpICLjXJyh+3KuCIjIKgLTwpkPQAsLNIpmkr//jRfanjve0EoGkQAAAABJRU5ErkJggg49bfb613cbf07d08cc0c9ca3543fd937"
+                    width="10px;"/>
+	<input type="image" onclick="sortTable('user',5, 'asc')"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG6wAABusBTDGeSgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACySURBVDiNxdM9akJREAbQM0ogrV0aIdZuIZvQHdildAfuIptIcAGpJE0WYOUitBIhEBgbH/jzfF61cODr7ndg4E5kpnumdVe7CYiIp4j4jIhOo5CZtcEEiem5N5lZD6CPvx2QeC8Gdmv97pUTG/RLgfFRucocz40AelifARIfl4DvhnKVQS2AUUE5sUT3AMALVoVA4gftfeDrinKVSXUGwxvKiX+8BWZ4PfmiZbOIh1/jFoR2FSZYD+02AAAAAElFTkSuQmCCc190d1557c70501f26f390a9a74a5c83"
+                  width="10px;"/>
             </th>
             <th></th>
         </tr>
@@ -34,7 +105,7 @@
             <?=$user['id']?>
         </td>
         <td>
-            <?=$user['profile']['firstname']?>
+             <?=$user['profile']['firstname']?>
         </td>
         <td>
             <?=$user['profile']['lastname']?>
@@ -43,6 +114,13 @@
             <a href='mailto:<?=$user['email']?>'>
                 <?=$user['email']?>
             </a>
+        </td>
+         <td>
+            <?=$user['profile']['dateofbirth']?>
+        </td>
+        </td>
+         <td>
+            <?=$user['profile']['address']?>
         </td>
         <td>
             <a href="<?=$this->url('users/edit', array('user_id'   =>  $user['id']))?>" class="btn btn-success">
